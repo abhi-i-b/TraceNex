@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Surveillance Dashboard</title>
+
+<style>
+
+body {
+
+font-family: Arial;
+
+background: #eef2f7;
+
+padding: 30px;
+
+}
+
+.container {
+
+background: white;
+
+padding: 25px;
+
+border-radius: 10px;
+
+width: 95%;
+
+margin: auto;
+
+}
+
+h1 {
+
+text-align: center;
+
+color: #2c3e50;
+
+}
+
+.status-box {
+
+background: #27ae60;
+
+color: white;
+
+padding: 15px;
+
+border-radius: 8px;
+
+text-align: center;
+
+margin-bottom: 20px;
+
+font-size: 18px;
+
+}
+
+table {
+
+width: 100%;
+
+border-collapse: collapse;
+
+margin-top: 20px;
+
+}
+
+th, td {
+
+padding: 12px;
+
+border-bottom: 1px solid #ddd;
+
+text-align: center;
+
+}
+
+th {
+
+background: #2c3e50;
+
+color: white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎥 AI Surveillance Dashboard</h1>
+
+<div class="status-box">
+
+✅ System Active — Monitoring Faces
+
+</div>
+
+<h2>Recent Detections</h2>
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Time</th>
+
+<th>Confidence</th>
+
+</tr>
+
+{% for log in logs %}
+
+<tr>
+
+<td>
+
+{{ log.person.first_name }}
+
+{{ log.person.last_name }}
+
+</td>
+
+<td>
+
+{{ log.detected_at }}
+
+</td>
+
+<td>
+
+{{ log.confidence }} %
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

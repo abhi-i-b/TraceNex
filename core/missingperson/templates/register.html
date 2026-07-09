@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+rel="stylesheet">
+
+<link rel="icon" type="image/x-icon" href="/media/image/favicon.png">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Jost|Poppins"
+rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+label.checkbox-label {
+display: inline-block;
+margin-right: 20px;
+}
+
+.container {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+}
+
+.right-column {
+flex: 1;
+padding: 20px;
+background-color: #f5f5f5;
+}
+
+form {
+background-color: #ffffff;
+padding: 20px;
+border-radius: 8px;
+}
+
+</style>
+
+<title>Register</title>
+
+</head>
+
+<body style="font-family: 'Open Sans', sans-serif;">
+
+<nav class="navbar navbar-expand-lg navbar-dark"
+style="background-color:#37517E;">
+
+<div class="container-fluid justify-content-between"
+style="padding-left:8%;">
+
+<a class="navbar-brand" href="/">
+
+<h2>TraceNEX</h2>
+
+</a>
+
+</div>
+
+</nav>
+
+<div class="container">
+
+<div class="right-column">
+
+<div class="container mt-5 mb-3"
+style="padding-top:8%;">
+
+<form class="row g-3 p-4"
+method="POST"
+enctype="multipart/form-data">
+
+{% csrf_token %}
+
+<h2>Report Missing Case</h2>
+
+{% if messages %}
+
+<div class="alert alert-primary">
+
+{% for message in messages %}
+
+{{ message }}
+
+{% endfor %}
+
+</div>
+
+{% endif %}
+
+<hr>
+
+<div class="row">
+
+<div class="col">
+
+<label>First Name</label>
+
+<input type="text"
+name="first_name"
+class="form-control"
+required>
+
+</div>
+
+<div class="col">
+
+<label>Last Name</label>
+
+<input type="text"
+name="last_name"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col">
+
+<label>Father Name</label>
+
+<input type="text"
+name="fathers_name"
+class="form-control"
+required>
+
+</div>
+
+<div class="col">
+
+<label>Date of Birth</label>
+
+<input type="date"
+name="dob"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label>Address</label>
+
+<input type="text"
+name="address"
+class="form-control"
+required>
+
+</div>
+
+<div class="row">
+
+<div class="col">
+
+<label>Email</label>
+
+<input type="email"
+name="email"
+class="form-control"
+required>
+
+</div>
+
+<div class="col">
+
+<label>Phone Number</label>
+
+<input type="number"
+name="phonenum"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col">
+
+<label>Aadhar Number</label>
+
+<input type="number"
+name="aadhar_number"
+class="form-control"
+required>
+
+</div>
+
+<div class="col">
+
+<label>Missing Date</label>
+
+<input type="date"
+name="missing_date"
+class="form-control"
+required>
+
+</div>
+
+</div>
+
+<div class="row p-2">
+
+<div class="col">
+
+<label>Male</label>
+
+<input type="checkbox"
+name="gender"
+value="Male">
+
+</div>
+
+<div class="col">
+
+<label>Female</label>
+
+<input type="checkbox"
+name="gender"
+value="Female">
+
+</div>
+
+<div class="col">
+
+<label>Others</label>
+
+<input type="checkbox"
+name="gender"
+value="Others">
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label>Image</label>
+
+<input type="file"
+name="image"
+class="form-control">
+
+</div>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+
+<button type="submit"
+class="btn btn-success">
+
+Register
+
+</button>
+
+</div>
+
+<div class="text-center mt-3">
+
+Go to the
+
+<a href="/surveillance/">
+
+<b>Surveillance Mode</b>
+
+</a>
+
+</div>
+
+<hr>
+
+<!-- NEW BUTTONS -->
+
+<div class="text-center mt-4">
+
+<h5>Select Reporting Portal</h5>
+
+<a href="/report/police/">
+
+<button type="button"
+class="btn btn-danger m-2"
+style="padding:12px 25px;">
+
+🚓 Report as Police
+
+</button>
+
+</a>
+
+<a href="/report/individual/">
+
+<button type="button"
+class="btn btn-primary m-2"
+style="padding:12px 25px;">
+
+👤 Report as Individual
+
+</button>
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

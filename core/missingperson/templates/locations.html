@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Detection Logs</title>
+
+<style>
+
+body {
+
+font-family: Arial;
+
+background: #f4f6f8;
+
+padding: 30px;
+
+}
+
+.container {
+
+background: white;
+
+padding: 25px;
+
+border-radius: 10px;
+
+width: 95%;
+
+margin: auto;
+
+}
+
+h2 {
+
+text-align: center;
+
+color: #2c3e50;
+
+}
+
+table {
+
+width: 100%;
+
+border-collapse: collapse;
+
+margin-top: 20px;
+
+}
+
+th, td {
+
+padding: 12px;
+
+border-bottom: 1px solid #ddd;
+
+text-align: center;
+
+}
+
+th {
+
+background: #2c3e50;
+
+color: white;
+
+}
+
+img {
+
+width: 100px;
+
+border-radius: 6px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📍 Detection Logs</h2>
+
+<table>
+
+<tr>
+
+<th>Name</th>
+
+<th>Time</th>
+
+<th>Confidence</th>
+
+<th>Screenshot</th>
+
+</tr>
+
+{% for log in logs %}
+
+<tr>
+
+<td>
+
+{{ log.person.first_name }}
+
+{{ log.person.last_name }}
+
+</td>
+
+<td>
+
+{{ log.detected_at }}
+
+</td>
+
+<td>
+
+{{ log.confidence }} %
+
+</td>
+
+<td>
+
+{% if log.screenshot %}
+
+<img src="{{ log.screenshot.url }}">
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>
